@@ -27,3 +27,5 @@ phpunit.phar
 /phpunit.xml
 
 log/
+
+composer.lock
