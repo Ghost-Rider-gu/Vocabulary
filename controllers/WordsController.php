@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class WordsController extends Controller
 {
+    // события, фильтры
     public function behaviors()
     {
         return [
@@ -32,8 +33,13 @@ class WordsController extends Controller
      */
     public function actionIndex()
     {
+        // профилирование кода
+        Yii::beginProfile('Benchmark');
+
         $searchModel = new WordsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        Yii::endProfile('Benchmark');
 
         return $this->render('index', [
             'searchModel' => $searchModel,

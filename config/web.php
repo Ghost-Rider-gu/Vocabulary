@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__), // корневая директория приложения
 
     //'aliases' => [], // настройка псевдонимов
+    //'defaultRoute' => 'main/index',
     //'catchAll' => [], // действие контроллера, который будет обрабатывать все входящие запросы (режим обслуживания)
     'bootstrap' => ['log'], // загрузка компонентов, модулей при начальной загрузке приложения (начальную загрузку следует использовать осторожно, так как это снижает скорость загрузки приложения)
     //'controllerMap' => [], // соответствие между ID контроллера и его классом (переопределение или псевдонимы для контроллеров)
@@ -22,6 +23,12 @@ $config = [
         'request' => [
             'cookieValidationKey' => '70RgKOHBAHURB6dI-KDGySxCOL8zjd6h',
         ],
+        //настройка хранилища сессий
+        //'session' => [
+            //'class' => 'yii\web\DbSession',
+            // 'db' => 'mydb',  // ID компонента для взаимодействия с БД. По умолчанию 'db'.
+            // 'sessionTable' => 'my_session', // название таблицы для хранения данных сессии. По умолчанию 'session'.
+        //],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -46,14 +53,24 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
-        'urlManager' => [
+
+        // настройка ЧПУ
+       /* 'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'suffix' => '.html',
             'rules' => [
+                // настройка правила
+                [
+                    //'class' => '', // можно указать свой класс для определения маршрута
+                    'pattern' => 'words',
+                    'route' => 'words/index',
+                    //'suffix' => '.html',
+                ],
             ],
-        ],
-        */
+        ],*/
+
     ],
 ];
 
