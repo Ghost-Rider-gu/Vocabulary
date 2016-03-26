@@ -1,15 +1,15 @@
 <?php
 
 /**
- * -----------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
  *  Config database (MySQL)
  *
- *  dns - string connection
+ *  class    - connection to a database via PDO
+ *  dns      - string connection (driver, host, database name)
  *  username - your login for MySQL
  *  password - your password for MySQL
  *  charset  - encoding
- *  tablePrefix - not use
- * -----------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
  */
 
 return [

@@ -1,40 +1,47 @@
 <?php
 
 /**
- * -------------------------------------------------------------------
- *  Main config application
- * -------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
+ *  Main config application.
+ *
+ *  id         - unique identifier of the application
+ *  basePath   - root directory of the application
+ *  bootstrap  - loading of components, modules at boot applications
+ *               (initial charge should be used cautiously, as it reduces the application download speeds)
+ *  name       - application name
+ *  language   - application language (for multilingual)
+ *  params     - globally available application settings
+ *  timeZone   - setting a time zone
+ *  version    - version of the application
+ *  components - registration application components
+ *     request      - for query processing component
+ *     cache        - config caching
+ *     user         - user management
+ *     errorHandler - error processing
+ *     mailer       - config mailing
+ *     log          - config log application
+ *     db           - config database
+ * ---------------------------------------------------------------------------------------------------------------------
  */
 
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'F5LNED', // уникальный индекс приложения
-    'basePath' => dirname(__DIR__), // корневая директория приложения
+    'id'       => 'F5LNED',
+    'basePath' => dirname(__DIR__),
 
-    //'aliases' => [], // настройка псевдонимов
-    //'defaultRoute' => 'main/index',
-    //'catchAll' => [], // действие контроллера, который будет обрабатывать все входящие запросы (режим обслуживания)
-    'bootstrap' => ['log'], // загрузка компонентов, модулей при начальной загрузке приложения (начальную загрузку следует использовать осторожно, так как это снижает скорость загрузки приложения)
-    //'controllerMap' => [], // соответствие между ID контроллера и его классом (переопределение или псевдонимы для контроллеров)
-    //'controllerNamespace' => [], // наименование пространства имен для классов контроллеров
-    'name' => 'Vocabulary', // название приложения
-    'language' => 'ru-RU', // язык приложения (для мультиязычных приложений)
-    'params' => $params, // глобально доступные параметры приложения
-    'timeZone' => 'Europe/Moscow', // временная зона
-    'sourceLanguage' => '', // язык на котором написан код приложения
-    'version' => '', // версия приложения
-    //'modules' => [], // модули приложения
-    'components' => [ // регистрация компонентов приложения
+    'bootstrap' => ['log'],
+    'params'    => $params,
+
+    'name'     => 'Vocabulary',
+    'language' => 'ru-RU',
+    'timeZone' => 'Europe/Moscow',
+    'version'  => '0.1b',
+
+    'components' => [
         'request' => [
             'cookieValidationKey' => '70RgKOHBAHURB6dI-KDGySxCOL8zjd6h',
         ],
-        //настройка хранилища сессий
-        //'session' => [
-            //'class' => 'yii\web\DbSession',
-            // 'db' => 'mydb',  // ID компонента для взаимодействия с БД. По умолчанию 'db'.
-            // 'sessionTable' => 'my_session', // название таблицы для хранения данных сессии. По умолчанию 'session'.
-        //],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -59,41 +66,11 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
-        'i18n' => [
-            'translations' => [
-                'app*' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    //'basePath' => '@app/messages',
-                    //'sourceLanguage' => 'en-US',
-                    'fileMap' => [
-                        'app'       => 'app.php',
-                        'app/error' => 'error.php',
-                    ],
-                ],
-            ],
-        ],
-
-        // настройка ЧПУ
-       /* 'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => false,
-            'suffix' => '.html',
-            'rules' => [
-                // настройка правила
-                [
-                    //'class' => '', // можно указать свой класс для определения маршрута
-                    'pattern' => 'words',
-                    'route' => 'words/index',
-                    //'suffix' => '.html',
-                ],
-            ],
-        ],*/
-
     ],
 ];
 
+//----------------------------------------------------------------------------------------------------------------------
+// Connection module debug and code generator (gii) (sample - localhost:80/your path site/web/index.php?r=gii)
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
@@ -105,5 +82,6 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
     ];
 }
+//----------------------------------------------------------------------------------------------------------------------
 
 return $config;
