@@ -12,5 +12,5 @@ return [
     'twitter'  => 'https://twitter.com/Ghost_gu',
     'facebook' => 'https://www.facebook.com/yura.golubnichenko',
     'github'   => 'https://github.com/Ghost-Rider-gu',
-    'linkedin' => '',
+    'linkedin' => 'https://ru.linkedin.com/in/yuriy-golubnichenko-89185859',
 ];
