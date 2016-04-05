@@ -43,11 +43,11 @@ AppAsset::register($this);
 <!-- Footer -->
 <footer id="footer">
     <ul class="icons">
-        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-        <li><a href="#" class="icon fa-facebook"><span class="label">Dribbble</span></a></li>
-        <li><a href="#" class="icon fa-linkedin"><span class="label">Dribbble</span></a></li>
-        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+        <li><a href="<?= Yii::$app->params['twitter']; ?>" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+        <li><a href="<?= Yii::$app->params['github']; ?>" class="icon fa-github" target="_blank"><span class="label">Github</span></a></li>
+        <li><a href="<?= Yii::$app->params['facebook']; ?>" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+        <li><a href="<?= Yii::$app->params['linkedin']; ?>" class="icon fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+        <li><a href="<?= Yii::$app->params['email']; ?>" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
     </ul>
     <ul class="copyright">
         <li>&copy; SienDev <?= date("Y"); ?></li>
