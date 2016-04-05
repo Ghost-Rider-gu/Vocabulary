@@ -8,7 +8,7 @@
  */
 
 return [
-    'email'    => 'yuri@golubnichenko.com',
+    'email'    => 'mailto:yuri@golubnichenko.com',
     'twitter'  => 'https://twitter.com/Ghost_gu',
     'facebook' => 'https://www.facebook.com/yura.golubnichenko',
     'github'   => 'https://github.com/Ghost-Rider-gu',
