@@ -29,8 +29,24 @@ AppAsset::register($this);
 <!-- Header -->
 <header id="header">
     <a href="#" class="image avatar"><img src="images/logo.png" alt="" /></a>
-    <h1> Description </h1>
-    <h1> Menu </h1>
+    <h1>
+        <a href="#"> Словарь </a>
+    </h1>
+    <h1>
+        <a href="#"> Фразы </a>
+    </h1>
+    <h1>
+        <a href="#"> Материалы </a>
+    </h1>
+    <h1>
+        <a href="#"> Вход </a>
+    </h1>
+    <h1>
+        <a href="#"> UserName </a>
+    </h1>
+    <h1>
+        <a href="#"> Выход </a>
+    </h1>
 </header>
 <!-- /Header -->
 
