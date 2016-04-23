@@ -4,23 +4,23 @@
  * ---------------------------------------------------------------------------------------------------------------------
  *  Main config application.
  *
- *  id         - unique identifier of the application
- *  basePath   - root directory of the application
- *  bootstrap  - loading of components, modules at boot applications
- *               (initial charge should be used cautiously, as it reduces the application download speeds)
- *  name       - application name
- *  language   - application language (for multilingual)
- *  params     - globally available application settings
- *  timeZone   - setting a time zone
- *  version    - version of the application
- *  components - registration application components
- *     request      - for query processing component
- *     cache        - config caching
- *     user         - user management
- *     errorHandler - error processing
- *     mailer       - config mailing
- *     log          - config log application
- *     db           - config database
+ *  id           - unique identifier of the application
+ *  basePath     - root directory of the application
+ *  bootstrap    - loading of components, modules at boot applications
+ *                 (initial charge should be used cautiously, as it reduces the application download speeds)
+ *  name         - application name
+ *  language     - application language (for multilingual)
+ *  params       - globally available application settings
+ *  timeZone     - setting a time zone
+ *  version      - version of the application
+ *  components   - registration application components
+ *  request      - for query processing component
+ *  cache        - config caching
+ *  user         - user management
+ *  errorHandler - error processing
+ *  mailer       - config mailing
+ *  log          - config log application
+ *  db           - config database
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
