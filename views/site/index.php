@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = '- main page';
+$this->title = '- Главная';
 ?>
 
 <div class="site-index">
