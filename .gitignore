@@ -17,7 +17,6 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
-composer.lock
 
 # Mac DS_Store Files
 .DS_Store
@@ -31,3 +30,5 @@ phpunit.phar
 log/
 
 /develop
+tests/_output/*
+tests/codeception/_support/_generated/*
