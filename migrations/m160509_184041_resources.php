@@ -3,11 +3,11 @@
 use yii\db\Migration;
 use yii\db\Schema;
 
-class m160509_184041_sources extends Migration
+class m160509_184041_resources extends Migration
 {
     public function up()
     {
-        $this->createTable('sources', [
+        $this->createTable('resources', [
             'id'        => Schema::TYPE_PK,
 
         ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
@@ -15,6 +15,6 @@ class m160509_184041_sources extends Migration
 
     public function down()
     {
-        $this->dropTable('sources');
+        $this->dropTable('resources');
     }
 }
