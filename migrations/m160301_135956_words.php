@@ -13,6 +13,7 @@ use yii\db\Schema;
  *      translate   - translation of the word
  *      month       - what month it was added to the word (for static)
  *      year        - what year it was added to the word (for static)
+ *      category    - category of the word
  */
 class m160301_135956_words extends Migration
 {
@@ -28,6 +29,7 @@ class m160301_135956_words extends Migration
             'translate' => Schema::TYPE_STRING  . ' NOT NULL',
             'month'     => Schema::TYPE_STRING  . ' NOT NULL',
             'year'      => Schema::TYPE_INTEGER . ' NOT NULL',
+            'category'  => Schema::TYPE_STRING  . ' NOT NULL',
         ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
     }
 

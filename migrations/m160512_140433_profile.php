@@ -1,18 +1,32 @@
 <?php
 
 use yii\db\Migration;
+use yii\db\Schema;
 
+/**
+ * This class of migration for 'profile' table
+ *
+ * Fields:
+ *
+ */
 class m160512_140433_profile extends Migration
 {
-    public function up()
+    /**
+     * Create table 'profile' (transaction)
+     */
+    public function safeUp()
     {
-
+        $this->createTable('profile', [
+            'id'        => Schema::TYPE_PK,
+            'user_id'   => Schema::TYPE_INTEGER . ' NOT NULL',
+        ], 'ENGINE=InnoDB DEFAULT CHARSET=utf8');
     }
 
-    public function down()
+    /**
+     * Rollback data (transaction)
+     */
+    public function safeDown()
     {
-        echo "m160512_140433_profile cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('profile');
     }
 }
