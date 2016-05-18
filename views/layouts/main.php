@@ -47,6 +47,9 @@ AppAsset::register($this);
     <h1>
         <a href="#"> Выход </a>
     </h1>
+    <h1>
+        <a href="#"> Личный кабинет </a>
+    </h1>
 </header>
 <!-- /Header -->
 
