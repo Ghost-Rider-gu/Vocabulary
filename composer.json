@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "codeception/codeception": "*",
-        "nodge/yii2-eauth": "~2.0"
+        "nodge/yii2-eauth": "~2.0",
+        "2amigos/yii2-highcharts-widget" : "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
