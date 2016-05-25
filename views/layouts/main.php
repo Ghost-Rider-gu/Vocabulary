@@ -26,9 +26,24 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<!-- Header -->
+<!-- Header (left block) -->
 <header id="header">
-    <a href="#" class="image avatar"><img src="images/logo.png" alt="" /></a>
+    <!-- Logo -->
+    <a href="/" class="image avatar"><img src="images/logo.png" alt="Vocabulary" /></a>
+    <!-- /Logo -->
+
+    <!-- Setting -->
+    <div id="setting">
+        <h1>
+            <span>Flags icon</span>
+        </h1>
+        <h1>
+            <a href="#"> UserName </a>
+        </h1>
+    </div>
+    <!-- /Setting -->
+
+    <!-- Site menu -->
     <h1>
         <a href="#"> Словарь </a>
     </h1>
@@ -36,13 +51,13 @@ AppAsset::register($this);
         <a href="#"> Фразы </a>
     </h1>
     <h1>
-        <a href="#"> Материалы </a>
+        <a href="#"> База знаний </a>
+    </h1>
+    <h1>
+        <a href="#"> Тесты </a>
     </h1>
     <h1>
         <a href="#"> Вход </a>
-    </h1>
-    <h1>
-        <a href="#"> UserName </a>
     </h1>
     <h1>
         <a href="#"> Выход </a>
@@ -50,6 +65,7 @@ AppAsset::register($this);
     <h1>
         <a href="#"> Личный кабинет </a>
     </h1>
+    <!-- /Site menu -->
 </header>
 <!-- /Header -->
 
