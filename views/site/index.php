@@ -5,7 +5,18 @@
 $this->title = '- Главная';
 ?>
 
-<div class="site-index">
+<div>
+
+    <section id="one">
+        <header class="major">
+            <h2>Статистические данные</h2>
+        </header>
+        <p>Общая статистика по пользователям, словам, фразам, ресурсам</p>
+    </section>
+
+    <section id="two">
+    </section>
+
     <section id="three">
         <h2> Обратная связь </h2>
         <div class="row">
@@ -23,4 +34,5 @@ $this->title = '- Главная';
             </div>
         </div>
     </section>
+
 </div>
