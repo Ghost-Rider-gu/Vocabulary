@@ -29,6 +29,9 @@ phpunit.phar
 
 log/
 
+# Dev files
 /develop
+
+# Test files
 tests/_output/*
 tests/codeception/_support/_generated/*
