@@ -19,6 +19,7 @@
  *      cache        - config caching
  *      user         - user management
  *      i18n         - localization
+ *      urlManager   - config routes
  *      errorHandler - error processing
  *      mailer       - config mailing
  *      log          - config log application
@@ -79,6 +80,7 @@ $config = [
             'popup' => true,
             'cache' => false,
             'cacheExpire' => 0,
+
             'services' => [
                 'google_oauth' => [
                     'class' => 'nodge\eauth\services\GoogleOAuth2Service',
@@ -131,6 +133,16 @@ $config = [
             ]
         ],
 
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                'login' => 'site/login',
+                'logout' => 'site/logout',
+            ],
+        ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -146,6 +158,12 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'logFile' => '@app/runtime/logs/eauth.log',
+                    'categories' => ['nodge\eauth\*'],
+                    'logVars' => [],
                 ],
             ],
         ],
