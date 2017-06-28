@@ -1,5 +1,3 @@
 # phpstorm project files
 .idea
-
-# Dev files
-/develop
+*.iml
