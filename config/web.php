@@ -13,14 +13,18 @@
  *  params       - globally available application settings
  *  timeZone     - setting a time zone
  *  version      - version of the application
+ *  extensions   - app extensions
  *  components   - registration application components
- *  request      - for query processing component
- *  cache        - config caching
- *  user         - user management
- *  errorHandler - error processing
- *  mailer       - config mailing
- *  log          - config log application
- *  db           - config database
+ *      request      - for query processing component
+ *      cache        - config caching
+ *      user         - user management
+ *      i18n         - localization
+ *      urlManager   - config routes
+ *      errorHandler - error processing
+ *      mailer       - config mailing
+ *      log          - config log application
+ *      db           - config database
+ *      eauth        - authorization from social net
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
@@ -38,24 +42,116 @@ $config = [
     'timeZone' => 'Europe/Moscow',
     'version'  => '0.1b',
 
+    'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
+
     'components' => [
         'request' => [
             'cookieValidationKey' => '70RgKOHBAHURB6dI-KDGySxCOL8zjd6h',
         ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\il8n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'app'       => 'app.php',
+                        'app_error' => 'error.php',
+                    ]
+                ],
+                'eauth' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@eauth/messages',
+                ],
+            ],
+        ],
+
+        'eauth' => [
+            'class' => 'nodge\eauth\EAuth',
+            'popup' => true,
+            'cache' => false,
+            'cacheExpire' => 0,
+
+            'services' => [
+                'google_oauth' => [
+                    'class' => 'nodge\eauth\services\GoogleOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                    'title' => 'Google',
+                ],
+                'facebook' => [
+                    'class' => 'nodge\eauth\services\FacebookOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                ],
+                'twitter' => [
+                    'class' => 'nodge\eauth\services\TwitterOAuth1Service',
+                    'key' => '...',
+                    'secret' => '...',
+                ],
+                'yahoo' => [
+                    'class' => 'nodge\eauth\services\YahooOpenIDService',
+                ],
+                'linkedin_oauth2' => [
+                    'class' => 'nodge\eauth\services\LinkedinOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                    'title' => 'LinkedIn (OAuth2)',
+                ],
+                'yandex_oauth' => [
+                    'class' => 'nodge\eauth\services\YandexOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                    'title' => 'Yandex',
+                ],
+                'vkontakte' => [
+                    'class' => 'nodge\eauth\services\VKontakteOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                ],
+                'mailru' => [
+                    'class' => 'nodge\eauth\services\MailruOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                ],
+                'odnoklassniki' => [
+                    'class' => 'nodge\eauth\services\OdnoklassnikiOAuth2Service',
+                    'clientId' => '...',
+                    'clientSecret' => '...',
+                    'clientPublic' => '...',
+                    'title' => 'Odnoklas.',
+                ],
+            ]
+        ],
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                'login' => 'site/login',
+                'logout' => 'site/logout',
+            ],
+        ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
         ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -63,8 +159,15 @@ $config = [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'logFile' => '@app/runtime/logs/eauth.log',
+                    'categories' => ['nodge\eauth\*'],
+                    'logVars' => [],
+                ],
             ],
         ],
+
         'db' => require(__DIR__ . '/db.php'),
     ],
 ];

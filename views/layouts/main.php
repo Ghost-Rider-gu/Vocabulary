@@ -29,7 +29,7 @@ AppAsset::register($this);
 <!-- Header (left block) -->
 <header id="header">
     <!-- Logo -->
-    <a href="/" class="image avatar"><img src="images/logo.png" alt="Vocabulary" /></a>
+    <a href="<?= Yii::$app->homeUrl; ?>" class="image avatar"><img src="images/logo.png" alt="Vocabulary" /></a>
     <!-- /Logo -->
 
     <!-- Setting -->
@@ -38,7 +38,7 @@ AppAsset::register($this);
             <span>Flags icon</span>
         </h1>
         <h1>
-            <a href="#"> UserName </a>
+            <a href="#"> <?= Yii::$app->user->identity->username; ?> </a>
         </h1>
     </div>
     <!-- /Setting -->
@@ -57,10 +57,10 @@ AppAsset::register($this);
         <a href="#"> Тесты </a>
     </h1>
     <h1>
-        <a href="#"> Вход </a>
+        <a href="site/login"> Вход </a>
     </h1>
     <h1>
-        <a href="#"> Выход </a>
+        <a href="site/logout"> Выход </a>
     </h1>
     <h1>
         <a href="#"> Личный кабинет </a>
