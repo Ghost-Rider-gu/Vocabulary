@@ -1,4 +1,4 @@
-![app_logo](\app.resources\app_logo.png)  Learn English words
+![app_logo](app.resources/app_logo.png)  Learn English words
 ===========================
 *Build your personal vocabulary day by day.*
 
@@ -14,7 +14,7 @@
 
 
 **Data base's schema**
-![schema_db](\app.resources\schema_db.png)
+![schema_db](app.resources/schema_db.png)
 
 
 Created in 2017 by Ghost Rider
