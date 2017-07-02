@@ -16,5 +16,12 @@
 **Data base's schema**
 ![schema_db](app.resources/schema_db.png)
 
+------
+*For the frontend I use the next template* - [colorlib-gentelella](https://colorlib.com/polygon/gentelella/index.html)
 
-Created in 2017 by Ghost Rider
+*Also it's on github* - [gentelella](https://github.com/puikinsh/gentelella)
+                
+***Thank's for this template, fellas***
+
+
+App created by Ghost Rider 2017
