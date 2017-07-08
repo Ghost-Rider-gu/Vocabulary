@@ -19,6 +19,8 @@ public class SessionFactoryMySQL
 
     public static void closeSessionFactoryMySQL()
     {
-        sessionFactoryMySql.close();
+        if(sessionFactoryMySql.isOpen()) {
+            sessionFactoryMySql.close();
+        }
     }
 }
