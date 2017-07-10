@@ -30,7 +30,7 @@ public interface GeneralDao <T extends BaseEntity>
      *
      * @throws VocabularyDaoException Exception
      */
-    List<T> getEntity(T entity) throws VocabularyDaoException;
+    List<T> getAllEntity(String entity) throws VocabularyDaoException;
 
     /**
      * Update one of entity (user, word, profile, word category)
