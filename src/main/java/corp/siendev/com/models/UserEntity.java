@@ -1,5 +1,9 @@
 package corp.siendev.com.models;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -10,16 +14,23 @@ import java.sql.Timestamp;
  *
  * @author Golubnichenko Yuriy
  */
+@Setter
+@Getter
 @Entity
 @Table(name = "user")
 public class UserEntity extends BaseEntity implements Serializable
 {
+    @Setter(AccessLevel.NONE)
     private static final long serialVersionUID = -5054991725759496635L;
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
+    private ProfileEntity userProfile;
 
     @Column(name = "login")
     private String login;
@@ -35,66 +46,6 @@ public class UserEntity extends BaseEntity implements Serializable
 
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
-
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
-    public String getLogin()
-    {
-        return login;
-    }
-
-    public void setLogin(String login)
-    {
-        this.login = login;
-    }
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    public Timestamp getCreatedAt()
-    {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt)
-    {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt()
-    {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt)
-    {
-        this.updatedAt = updatedAt;
-    }
-
-    public Timestamp getDeletedAt()
-    {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt)
-    {
-        this.deletedAt = deletedAt;
-    }
 
     @Override
     public boolean equals(Object o)
