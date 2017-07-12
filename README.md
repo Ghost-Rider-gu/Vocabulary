@@ -24,4 +24,4 @@
 ***Thank's for this template, fellas***
 
 
-App created by Ghost Rider 2017
+App created by Ghost Rider in 2017
