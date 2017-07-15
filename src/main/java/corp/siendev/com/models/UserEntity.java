@@ -32,6 +32,10 @@ public class UserEntity extends BaseEntity implements Serializable
     @JoinColumn(name = "profile_id")
     private ProfileEntity userProfile;
 
+    @ManyToOne
+    @JoinColumn(name = "word_id")
+    private WordEntity wordEntity;
+
     @Column(name = "login")
     private String login;
 
