@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * Word entity. Add new words
@@ -32,6 +33,18 @@ public class WordEntity extends BaseEntity implements Serializable
     @Column(name = "translate")
     private String translate;
 
+    @Column(name = "month")
+    private String month;
+
+    @Column(name = "year")
+    private int year;
+
+    @Column(name = "full_date")
+    private Timestamp date;
+
+    @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
+    private UserEntity userEntity;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private WordCategoryEntity categoryWord;
@@ -47,6 +60,7 @@ public class WordEntity extends BaseEntity implements Serializable
         if (id != that.id) return false;
         if (word != null ? !word.equals(that.word) : that.word != null) return false;
         if (translate != null ? !translate.equals(that.translate) : that.translate != null) return false;
+        if (month != null ? !month.equals(that.month) : that.month != null) return false;
         if (categoryWord != null ? !categoryWord.equals(that.categoryWord) : that.categoryWord != null) return false;
 
         return true;
@@ -58,6 +72,7 @@ public class WordEntity extends BaseEntity implements Serializable
         int result = id;
         result = 31 * result + (word != null ? word.hashCode() : 0);
         result = 31 * result + (translate != null ? translate.hashCode() : 0);
+        result = 31 * result + (month != null ? month.hashCode() : 0);
         result = 31 * result + (categoryWord != null ? categoryWord.hashCode() : 0);
 
         return result;
@@ -68,6 +83,8 @@ public class WordEntity extends BaseEntity implements Serializable
     {
         return "Added new word: " + this.word + "\n" +
                 "with translate: " + this.translate + "\n" +
+                "date: " + this.month +
+                " " + this.year +
                 "in category: " + this.categoryWord.getCategory();
     }
 }
