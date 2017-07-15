@@ -5,6 +5,11 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema engbang
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `engbang` ;
+
+-- -----------------------------------------------------
+-- Schema engbang
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `engbang` DEFAULT CHARACTER SET utf8 ;
 USE `engbang` ;
 
@@ -21,29 +26,6 @@ CREATE TABLE IF NOT EXISTS `engbang`.`profile` (
   `user_describe` VARCHAR(100) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `engbang`.`user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `engbang`.`user` ;
-
-CREATE TABLE IF NOT EXISTS `engbang`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `profile_id` INT NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(15) NOT NULL,
-  `created_at` DATETIME NOT NULL,
-  `updated_at` DATETIME NOT NULL,
-  `deleted_at` DATETIME NULL,
-  PRIMARY KEY (`id`, `profile_id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `profile_id_UNIQUE` (`profile_id` ASC),
-  CONSTRAINT `profile_id`
-    FOREIGN KEY (`profile_id`)
-    REFERENCES `engbang`.`profile` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -65,9 +47,12 @@ DROP TABLE IF EXISTS `engbang`.`word` ;
 
 CREATE TABLE IF NOT EXISTS `engbang`.`word` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `category_id` INT NOT NULL,
   `word` VARCHAR(50) NOT NULL,
   `translate` VARCHAR(60) NOT NULL,
-  `category_id` INT NOT NULL,
+  `month` VARCHAR(15) NOT NULL,
+  `year` INT NOT NULL,
+  `full_date` DATETIME NOT NULL,
   PRIMARY KEY (`id`, `category_id`),
   INDEX `category_id_idx` (`category_id` ASC),
   CONSTRAINT `category_id`
@@ -78,28 +63,31 @@ CREATE TABLE IF NOT EXISTS `engbang`.`word` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `engbang`.`word_bind`
+-- Table `engbang`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `engbang`.`word_bind` ;
+DROP TABLE IF EXISTS `engbang`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `engbang`.`word_bind` (
+CREATE TABLE IF NOT EXISTS `engbang`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `profile_id` INT NOT NULL,
   `word_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  `month` VARCHAR(15) NOT NULL,
-  `year` INT NOT NULL,
-  `full_date` DATETIME NOT NULL,
-  PRIMARY KEY (`id`, `user_id`, `word_id`),
-  INDEX `word_id_idx` (`word_id` ASC),
-  INDEX `user_id_idx` (`user_id` ASC),
-  CONSTRAINT `word_id`
-    FOREIGN KEY (`word_id`)
-    REFERENCES `engbang`.`word` (`id`)
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(15) NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`, `profile_id`, `word_id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `profile_id_UNIQUE` (`profile_id` ASC),
+  UNIQUE INDEX `word_id_UNIQUE` (`word_id` ASC),
+  CONSTRAINT `profile_id`
+    FOREIGN KEY (`profile_id`)
+    REFERENCES `engbang`.`profile` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `engbang`.`user` (`id`)
+  CONSTRAINT `wor_id`
+    FOREIGN KEY (`word_id`)
+    REFERENCES `engbang`.`word` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
