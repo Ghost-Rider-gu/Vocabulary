@@ -1,4 +1,7 @@
 # phpstorm project files
 .idea
+*.iml
 
-app.vocabulary.iml
+# build
+target
+out

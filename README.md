@@ -1,12 +1,27 @@
-Learn English App (LEAP)
-============================
+![app_logo](app.resources/app_logo.png)  Learn English words
+===========================
+*Build your personal vocabulary day by day.*
 
 
-### Educational App Learn English App
+**Technology stack:**
+
+- MySQL
+- Spring MVC
+- Spring Security
+- Hibernate Search
+- Hibernate ORM
+- Maven
 
 
-The first application is developed for personal needs - learn English (it is like a dictionary, phrasebook, storage resources, and so on)
+**Data base's schema**
+![schema_db](app.resources/schema_db.png)
 
-Second - this is a textbook example (the code is the most documented). This application can be used as a case study to explore the Yii2.
+------
+*For the frontend I use the next template* - [colorlib-gentelella](https://colorlib.com/polygon/gentelella/index.html)
 
-Periodically, this section will be expanded to describe techniques and tools
+*Also it's on github* - [gentelella](https://github.com/puikinsh/gentelella)
+                
+***Thank's for this template, fellas***
+
+
+App created by Ghost Rider in 2017

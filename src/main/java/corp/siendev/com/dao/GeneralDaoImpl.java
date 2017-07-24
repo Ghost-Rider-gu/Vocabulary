@@ -2,6 +2,7 @@ package corp.siendev.com.dao;
 
 import corp.siendev.com.exception.VocabularyDaoException;
 import corp.siendev.com.models.BaseEntity;
+
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+
 import java.util.List;
 
 /**
@@ -19,6 +21,7 @@ import java.util.List;
  *
  * @author Golubnichenko Yuriy
  */
+
 @Repository
 @Transactional(readOnly = true)
 @Slf4j
@@ -57,6 +60,16 @@ public class GeneralDaoImpl <T extends BaseEntity> implements GeneralDao <T>
         String hql = "";
         Query query = mySQLSession.createQuery(hql);
         //T dataEntity = query.getSingleResult();
+
+public class GeneralDaoImpl <T extends BaseEntity> implements GeneralDao <T>
+{
+    @Override
+    public void createEntity(T entity) throws VocabularyDaoException {
+
+    }
+
+    @Override
+    public List<T> getEntity(T entity) throws VocabularyDaoException {
         return null;
     }
 
@@ -74,5 +87,15 @@ public class GeneralDaoImpl <T extends BaseEntity> implements GeneralDao <T>
     {
         Session mySQLSession = mySQLFactory.openSession();
         mySQLSession.delete(entity);
+
+    public void updateEntity(T entity) throws VocabularyDaoException {
+
+    }
+
+    @Override
+    public void deleteEntity(T entity) throws VocabularyDaoException
+    {
+
+
     }
 }
