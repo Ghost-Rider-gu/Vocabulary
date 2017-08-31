@@ -1,4 +1,4 @@
-package corp.siendev.com;
+package corp.siendev.com.vocabulary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

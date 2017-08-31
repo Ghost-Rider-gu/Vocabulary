@@ -1,4 +1,4 @@
-package corp.siendev.com.exception;
+package corp.siendev.com.vocabulary.exception;
 
 /**
  * General exception for application.

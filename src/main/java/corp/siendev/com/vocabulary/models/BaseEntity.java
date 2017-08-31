@@ -1,4 +1,4 @@
-package corp.siendev.com.models;
+package corp.siendev.com.vocabulary.models;
 
 /**
  * Abstract class for our entities

@@ -1,4 +1,4 @@
-package corp.siendev.com.models;
+package corp.siendev.com.vocabulary.models;
 
 import lombok.AccessLevel;
 import lombok.Getter;
