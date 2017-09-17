@@ -14,8 +14,8 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "word")
-public class WordEntity implements Serializable
-{
+public class WordEntity implements Serializable {
+
     private static final long serialVersionUID = 3132167399148271724L;
 
     @Id
@@ -38,10 +38,11 @@ public class WordEntity implements Serializable
     @Column(name = "full_date")
     private Timestamp date;
 
-    @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user")
     private UserEntity userEntity;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "category_id")
-    private WordCategoryEntity categoryWord;
+    private WordCategoryEntity wordCategory;
 }

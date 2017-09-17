@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Users which may use vocabulary application
@@ -15,22 +16,14 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "user")
-public class UserEntity implements Serializable
-{
+public class UserEntity implements Serializable {
+
     private static final long serialVersionUID = -5054991725759496635L;
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profile_id")
-    private ProfileEntity userProfile;
-
-    @ManyToOne
-    @JoinColumn(name = "word_id")
-    private WordEntity wordEntity;
 
     @Column(name = "login")
     private String login;
@@ -46,4 +39,10 @@ public class UserEntity implements Serializable
 
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
+
+    @OneToOne(mappedBy = "user")
+    private ProfileEntity userProfile;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
+    private List<WordEntity> wordList;
 }

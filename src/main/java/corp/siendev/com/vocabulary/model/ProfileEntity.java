@@ -14,8 +14,8 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "profile")
-public class ProfileEntity implements Serializable
-{
+public class ProfileEntity implements Serializable {
+
     private static final long serialVersionUID = 1351350720168320374L;
 
     @Id
@@ -34,4 +34,8 @@ public class ProfileEntity implements Serializable
 
     @Column(name = "user_describe")
     private String userDescribe;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 }
