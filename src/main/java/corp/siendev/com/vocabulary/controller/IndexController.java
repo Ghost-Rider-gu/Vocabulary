@@ -2,6 +2,7 @@ package corp.siendev.com.vocabulary.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Main page of Vocabulary.
@@ -9,8 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Golubnichenko Yuriy
  */
 @Controller
-@RequestMapping(value = "vocabulary")
-public class HomeController {
+public class IndexController {
 
+    private static final String VIEW_INDEX = "index";
 
+    @RequestMapping(value = "/index")
+    public String index() {
+        return "index";
+    }
 }
