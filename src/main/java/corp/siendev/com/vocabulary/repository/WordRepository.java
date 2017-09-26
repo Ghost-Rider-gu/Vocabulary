@@ -16,6 +16,6 @@ import java.util.List;
 @Transactional
 public interface WordRepository extends CrudRepository<WordEntity, Integer> {
 
-    List<WordEntity> findByMonth();
-    List<WordEntity> findByYear();
+    //List<WordEntity> findByMonth();
+    //List<WordEntity> findByYear();
 }

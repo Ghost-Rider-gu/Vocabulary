@@ -16,5 +16,5 @@ import java.util.List;
 @Transactional
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
 
-    public List<UserEntity> findByLogin();
+    //List<UserEntity> findByLoginq();
 }
