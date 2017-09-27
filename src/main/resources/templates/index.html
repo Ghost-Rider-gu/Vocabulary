@@ -3,23 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Vocabulary for you">
+    <meta name="author" content="Ghost Rider">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title> Vocabulary for you </title>
 
-    <!-- Bootstrap core CSS -->
-    <link th:href="@{../static/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-
-    <!-- Custom fonts for this templates -->
-    <link th:href="@{../static/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-
-    <!-- Custom styles for this templates -->
-    <link th:href="@{../static/css/freelancer.min.css}" rel="stylesheet" />
-
-  </head>
+    <link href="../static/css/freelancer.min.css" th:href="@{css/freelancer.min.css}" rel="stylesheet" />
+</head>
 
   <body id="page-top">
 
@@ -34,13 +28,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Add word</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#about">Statistic</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Learn</a>
             </li>
           </ul>
         </div>
@@ -50,7 +44,7 @@
     <!-- Header -->
     <header class="masthead">
       <div class="container">
-        <img class="img-fluid" src="../static/img/profile.png" alt="">
+        <img class="img-fluid" src="../static/img/profile.png" alt="" th:src="@{img/profile.png}">
         <div class="intro-text">
           <span class="name">Start Bootstrap</span>
           <hr class="star-light">
@@ -72,7 +66,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/cabin.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/cabin.png" alt="" th:src="@{img/portfolio/cabin.png}">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -82,7 +76,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/cake.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/cake.png" alt="" th:src="@{img/portfolio/cake.png}">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -92,7 +86,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/circus.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/circus.png" alt="" th:src="@{img/portfolio/circus.png}">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -102,7 +96,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/game.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/game.png" alt="" th:src="@{img/portfolio/game.png}">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -112,7 +106,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/safe.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/safe.png" alt="" th:src="@{img/portfolio/safe.png}">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -122,7 +116,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="/static/img/portfolio/submarine.png" alt="">
+              <img class="img-fluid" src="../static/img/portfolio/submarine.png" alt="" th:src="@{img/portfolio/submarine.png}">
             </a>
           </div>
         </div>
@@ -281,7 +275,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/cabin.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/cabin.png" alt="" th:src="@{img/portfolio/cabin.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -325,7 +319,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/cake.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/cake.png" alt="" th:src="@{img/portfolio/cake.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -369,7 +363,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/circus.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/circus.png" alt="" th:src="@{img/portfolio/circus.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -413,7 +407,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/game.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/game.png" alt="" th:src="@{img/portfolio/game.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -457,7 +451,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/safe.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/safe.png" alt="" th:src="@{img/portfolio/safe.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -501,7 +495,7 @@
                 <div class="modal-body">
                   <h2>Project Title</h2>
                   <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="/static/img/portfolio/submarine.png" alt="">
+                  <img class="img-fluid img-centered" src="../static/img/portfolio/submarine.png" alt="" th:src="@{img/portfolio/submarine.png}">
                   <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
                     <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                   <ul class="list-inline item-details">
@@ -533,19 +527,19 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/static/vendor/jquery/jquery.min.js"></script>
-    <script src="/static/vendor/popper/popper.min.js"></script>
-    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/vendor/jquery/jquery.min.js" th:src="@{vendor/jquery/jquery.min.js}"></script>
+    <script src="../static/vendor/popper/popper.min.js" th:src="@{vendor/popper/popper.min.js}"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js" th:src="@{vendor/bootstrap/js/bootstrap.min.js}"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js" th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="/static/js/jqBootstrapValidation.js"></script>
-    <script src="/static/js/contact_me.js"></script>
+    <script src="../static/js/jqBootstrapValidation.js" th:src="@{js/jqBootstrapValidation.js}"></script>
+    <script src="../static/js/contact_me.js" th:src="@{js/contact_me.js}"></script>
 
     <!-- Custom scripts for this templates -->
-    <script src="/static/js/freelancer.min.js"></script>
+    <script src="../static/js/freelancer.min.js" th:src="@{js/freelancer.min.js}"></script>
 
   </body>
 
