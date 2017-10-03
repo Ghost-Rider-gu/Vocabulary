@@ -17,9 +17,6 @@ public class IndexController {
 
     private static final String VIEW_INDEX = "index";
 
-    private long countWord = 0L;
-    private int countLanguage = 0;
-
     private int currentYear = Year.now().getValue();
 
     @Value("${spring.application.name}")
@@ -28,8 +25,6 @@ public class IndexController {
     @RequestMapping(value = "/index")
     public String index(Model model) {
         model.addAttribute("appName", appName);
-        model.addAttribute("countWord", countWord);
-        model.addAttribute("countLanguage", countLanguage);
         model.addAttribute("currentYear", currentYear);
 
         return VIEW_INDEX;
