@@ -12,6 +12,7 @@
 - Hibernate Search
 - Hibernate ORM
 - Maven
+- Thymeleaf
 
 
 **Data base's schema**
