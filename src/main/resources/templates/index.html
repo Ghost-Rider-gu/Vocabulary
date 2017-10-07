@@ -28,13 +28,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="word.html">Add a word</a>
+              <a class="nav-link js-scroll-trigger" href="#">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="statistic.html">Statistics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="learn.html">Learn</a>
+              <a class="nav-link js-scroll-trigger" href="#">Sign in</a>
             </li>
           </ul>
         </div>
@@ -45,14 +42,21 @@
     <header class="masthead">
       <div class="container">
         <div class="row">
-          <div class="intro-text">
-            <span class="name">WORDS</span>
-            <h2> <span class="skills" th:text="${countWord}"></span> </h2>
-          </div>
-          <div class="intro-text">
-            <span class="name">LANGUAGES</span>
-            <h2> <span class="skills" th:text="${countLanguage}"></span> </h2>
-          </div>
+            <div class="col-sm-4 portfolio-item">
+              <a class="portfolio-link" href="word.html">
+                <img class="img-fluid" src="../static/img/portfolio/word.png.png" th:src="@{img/portfolio/word.png}" alt="Add new word">
+              </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+              <a class="portfolio-link" href="statistics.html">
+                <img class="img-fluid" src="../static/img/portfolio/statistics.png.png" th:src="@{img/portfolio/statistics.png}" alt="Statistics">
+              </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+              <a class="portfolio-link" href="learn.html">
+                <img class="img-fluid" src="../static/img/portfolio/learn.png" th:src="@{img/portfolio/learn.png}" alt="Learn words">
+              </a>
+            </div>
         </div>
       </div>
     </header>
