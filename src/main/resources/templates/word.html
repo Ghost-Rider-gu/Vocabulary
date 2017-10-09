@@ -6,7 +6,7 @@
     <meta name="description" content="Vocabulary for you">
     <meta name="author" content="Ghost Rider">
 
-    <title> Vocabulary for you </title>
+    <title> Vocabulary - add a new word </title>
 
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
     <link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
@@ -28,13 +28,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="word.html">Add a word</a>
+                    <a class="nav-link js-scroll-trigger" href="#">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="statistic.html">Statistics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="learn.html">Learn</a>
+                    <a class="nav-link js-scroll-trigger" href="#">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -44,7 +41,33 @@
 <!-- Header -->
 <header class="masthead">
     <div class="container">
-
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Word</label>
+                            <input class="form-control" id="name" type="text" placeholder="Add a new word" required data-validation-required-message="Please enter a new word.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Translate</label>
+                            <input class="form-control" id="email" type="text" placeholder="Translate" required data-validation-required-message="Please enter translate for the word.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <button type="reset" class="btn btn-success btn-lg" id="resetButton">Reset</button>
+                        <button type="button" class="btn btn-success btn-lg" id="wordListButtonButton">Word list</button>
+                        <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Add a new word</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </header>
 
