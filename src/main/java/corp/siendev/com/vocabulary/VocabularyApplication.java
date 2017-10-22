@@ -23,5 +23,4 @@ public class VocabularyApplication {
         log.info("Start application: " + new Date());
         SpringApplication.run(VocabularyApplication.class, args);
     }
-
 }
