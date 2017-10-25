@@ -93,6 +93,12 @@
       <version>${nekohtml.version}</version>
     </dependency>
 
+    <!-- Thymeleaf extra -->
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+    </dependency>
+
   </dependencies>
 
   <build>
