@@ -19,7 +19,7 @@ import java.util.Date;
 @SpringBootApplication
 public class VocabularyApplication {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         log.info("Start application: " + new Date());
         SpringApplication.run(VocabularyApplication.class, args);
     }

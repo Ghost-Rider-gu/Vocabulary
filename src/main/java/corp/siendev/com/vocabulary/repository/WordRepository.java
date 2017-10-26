@@ -1,7 +1,7 @@
 package corp.siendev.com.vocabulary.repository;
 
 import corp.siendev.com.vocabulary.model.WordEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author Golubnichenko Yuriy
  */
 @Repository
-public interface WordRepository extends CrudRepository<WordEntity, Integer> {
+public interface WordRepository extends JpaRepository<WordEntity, Integer> {
 
 
 }
