@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 @Slf4j
 @EntityScan("corp.siendev.com.vocabulary.model")
 @EnableJpaRepositories("corp.siendev.com.vocabulary.repository")
+@EnableScheduling
 @SpringBootApplication
 public class VocabularyApplication {
 
