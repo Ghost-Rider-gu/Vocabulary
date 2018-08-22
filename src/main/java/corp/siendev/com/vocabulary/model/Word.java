@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yuriy.  All Rights Reserved.
+ */
+
 package corp.siendev.com.vocabulary.model;
 
 import lombok.Data;
@@ -7,21 +11,21 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * Word entity. Add new words
+ * Word entity. Add new words.
  *
  * @author Golubnichenko Yuriy
  */
 @Data
 @Entity
 @Table(name = "word")
-public class WordEntity implements Serializable {
+public class Word implements Serializable {
 
     private static final long serialVersionUID = 3132167399148271724L;
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "word")
     private String word;
@@ -38,11 +42,4 @@ public class WordEntity implements Serializable {
     @Column(name = "full_date")
     private Timestamp date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
-    private UserEntity userEntity;
-
-    @OneToOne
-    @JoinColumn(name = "category_id")
-    private WordCategoryEntity wordCategory;
 }
