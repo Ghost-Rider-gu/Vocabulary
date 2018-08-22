@@ -1,6 +1,10 @@
+/*
+ * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yuriy.  All Rights Reserved.
+ */
+
 package corp.siendev.com.vocabulary.repository;
 
-import corp.siendev.com.vocabulary.model.UserEntity;
+import corp.siendev.com.vocabulary.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Golubnichenko Yuriy
  */
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
