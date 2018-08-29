@@ -4,11 +4,17 @@
 
 package corp.siendev.com.vocabulary.model;
 
+import corp.siendev.com.vocabulary.model.util.AuditModel;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 /**
  * Word entity. Add new words.
@@ -17,8 +23,8 @@ import java.sql.Timestamp;
  */
 @Data
 @Entity
-@Table(name = "word")
-public class Word implements Serializable {
+@Table(name = "words")
+public class Word extends AuditModel implements Serializable {
 
     private static final long serialVersionUID = 3132167399148271724L;
 
@@ -27,19 +33,16 @@ public class Word implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     @Column(name = "word")
     private String word;
 
-    @Column(name = "translate")
-    private String translate;
-
+    @NotNull
     @Column(name = "month")
     private String month;
 
+    @NotNull
     @Column(name = "year")
     private int year;
-
-    @Column(name = "full_date")
-    private Timestamp date;
 
 }

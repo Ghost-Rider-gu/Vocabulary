@@ -4,20 +4,19 @@
 
 package corp.siendev.com.vocabulary.model;
 
+import corp.siendev.com.vocabulary.model.util.AuditModel;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.ManyToMany;
-import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * Users which may use vocabulary application.
@@ -27,8 +26,8 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "users")
+public class User extends AuditModel implements Serializable {
 
     private static final long serialVersionUID = -5054991725759496635L;
 
@@ -37,22 +36,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "login")
+    @NotNull
+    @Size(max = 35)
+    @Column(name = "login", unique = true)
     private String login;
 
+    @NotNull
     @Column(name = "password")
     private String password;
-
-    @Column(name = "created_at")
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    private Timestamp deletedAt;
-
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Vocabulary> vocabularyList;
 
 }

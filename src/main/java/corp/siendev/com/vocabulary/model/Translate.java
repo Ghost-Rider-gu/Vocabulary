@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * Word's translate.
@@ -20,14 +22,18 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "translate")
-public class Translate {
+@Table(name = "translates")
+public class Translate implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 8379980542072028602L;
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotNull
+    @Column(name = "translate")
+    private String translate;
 
 }

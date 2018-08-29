@@ -17,16 +17,16 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
- * Users' vocabulary.
+ * Word's category.
  *
  * @author Golubnichenko Yuriy
  */
 @Data
 @Entity
-@Table(name = "vocabularies")
-public class Vocabulary implements Serializable {
+@Table(name = "categories")
+public class Category implements Serializable {
 
-    private static final long serialVersionUID = 9111865057025931113L;
+    private static final long serialVersionUID = 7621023647889325665L;
 
     @Id
     @Column(name = "id")
@@ -34,8 +34,8 @@ public class Vocabulary implements Serializable {
     private long id;
 
     @NotNull
-    @Size(max = 30)
+    @Size(max = 40)
     @Column(name = "name")
-    private String vocabularyName;
+    private String categoryName;
 
 }
