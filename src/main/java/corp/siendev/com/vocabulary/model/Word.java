@@ -4,10 +4,14 @@
 
 package corp.siendev.com.vocabulary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import corp.siendev.com.vocabulary.model.util.AuditModel;
 import lombok.Data;
 
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.Column;
@@ -44,5 +48,15 @@ public class Word extends AuditModel implements Serializable {
     @NotNull
     @Column(name = "year")
     private int year;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "vocabulary_id", nullable = false)
+    @JsonIgnore
+    private Vocabulary vocabulary;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnore
+    private Category category;
 
 }
