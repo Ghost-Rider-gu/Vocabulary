@@ -1,34 +1,33 @@
 /*
- * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yuriy.  All Rights Reserved.
+ * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yurii.  All Rights Reserved.
  */
 
-package corp.siendev.com.vocabulary.model;
+package corp.siendev.com.vocabulary.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Word's translate.
  *
- * @author Golubnichenko Yuriy
+ * @author Golubnichenko Yurii
  */
 @Data
 @Entity
-@Table(name = "translates")
+@Table(name = "translate")
 public class Translate implements Serializable {
 
     private static final long serialVersionUID = 8379980542072028602L;
@@ -42,10 +41,12 @@ public class Translate implements Serializable {
     @Column(name = "translate")
     private String translate;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "word_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToMany
+    @JoinTable(
+            name = "word_translate",
+            joinColumns = @JoinColumn(name = "translate_id"),
+            inverseJoinColumns = @JoinColumn(name = "word_id"))
     @JsonIgnore
-    private Word word;
+    private Set<Word> words;
 
 }

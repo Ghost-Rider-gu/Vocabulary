@@ -1,33 +1,34 @@
 /*
- * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yuriy.  All Rights Reserved.
+ * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yurii.  All Rights Reserved.
  */
 
-package corp.siendev.com.vocabulary.model;
+package corp.siendev.com.vocabulary.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 /**
- * Users' vocabulary.
+ * User's vocabulary.
  *
- * @author Golubnichenko Yuriy
+ * @author Golubnichenko Yurii
  */
 @Data
 @Entity
-@Table(name = "vocabularies")
+@Table(name = "vocabulary")
 public class Vocabulary implements Serializable {
 
     private static final long serialVersionUID = 9111865057025931113L;
@@ -42,9 +43,12 @@ public class Vocabulary implements Serializable {
     @Column(name = "name")
     private String vocabularyName;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToMany(mappedBy = "vocabulary")
     @JsonIgnore
-    private User user;
+    private Set<Word> words;
+
+    @ManyToMany(mappedBy = "vocabularies")
+    @JsonIgnore
+    private List<User> users;
 
 }

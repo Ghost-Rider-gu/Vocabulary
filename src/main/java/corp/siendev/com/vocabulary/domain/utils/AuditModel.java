@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yuriy.  All Rights Reserved.
+ * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Yurii.  All Rights Reserved.
  */
 
-package corp.siendev.com.vocabulary.model.util;
+package corp.siendev.com.vocabulary.domain.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -26,7 +26,7 @@ import java.util.Date;
 @JsonIgnoreProperties(value = {"created_at", "updated_at", "deleted_at"}, allowGetters = true)
 public abstract class AuditModel implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 6384864799348477866L;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
