@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: Verbarium
+  datasource:
+    url: jdbc:postgresql://localhost:5432/verbarium
+    username: postgres
+    password: opensource
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8088
+
+# Start app (banner)
+banner:
+  location: classpath:META-INF/banner.txt
+
+logging:
+  file:
+    name: verbarium.log
+    path: /logs
+
+# Social login properties
