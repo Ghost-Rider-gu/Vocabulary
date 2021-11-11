@@ -32,6 +32,8 @@
     <java.version>1.8</java.version>
     <swagger.version>3.0.0</swagger.version>
     <postgresql.version>42.3.0</postgresql.version>
+    <docker.plugin.version>1.4.13</docker.plugin.version>
+    <docker.image.prefix>siendev</docker.image.prefix>
   </properties>
 
   <dependencies>
@@ -86,11 +88,34 @@
   </dependencies>
 
   <build>
-    <finalName>Verbarium</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <finalName>Verbarium</finalName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>${docker.plugin.version}</version>
+        <configuration>
+          <skipDockerInfo>true</skipDockerInfo>
+          <repository>${docker.image.prefix}/${project.artifactId}</repository>
+          <tag>${project.version}</tag>
+          <buildArgs>
+            <JAR_FILE>./target/${project.name}.jar</JAR_FILE>
+          </buildArgs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
