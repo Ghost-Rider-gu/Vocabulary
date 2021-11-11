@@ -3,8 +3,8 @@ spring:
     name: Verbarium
   datasource:
     url: jdbc:postgresql://localhost:5432/verbarium
-    username: postgres
-    password: opensource
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
@@ -16,7 +16,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8088
+  port: 8090
 
 # Start app (banner)
 banner:
