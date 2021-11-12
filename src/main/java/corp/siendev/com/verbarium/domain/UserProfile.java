@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -24,4 +25,16 @@ public class UserProfile implements Serializable {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "bio")
+    private String bio;
+
+    @Column(name = "picture")
+    private String picture;
+
+    @Column(name = "full_name")
+    private String fullName;
+
+    @OneToOne(mappedBy = "userProfile")
+    private User user;
 }
