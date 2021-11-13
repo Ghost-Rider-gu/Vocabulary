@@ -6,16 +6,18 @@ package corp.siendev.com.verbarium.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class RestExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ResponseErrorDetails> handleResourceNotFoundException(ResourceNotFoundException resourceNotFoundEx,
                                                              HttpServletRequest httpServletRequest) {
         String stackTrace = getStackTrace(resourceNotFoundEx);
@@ -27,6 +29,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(ResourceAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ResponseEntity<ResponseErrorDetails> handleResourceAlreadyExistsException(ResourceAlreadyExistsException resourceAlreadyExistsEx,
                                                              HttpServletRequest httpServletRequest) {
         String stackTrace = getStackTrace(resourceAlreadyExistsEx);
@@ -38,6 +41,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ResponseErrorDetails> handleBadRequestException(BadRequestException badRequestEx,
                                                                           HttpServletRequest httpServletRequest) {
         String stackTrace = getStackTrace(badRequestEx);
