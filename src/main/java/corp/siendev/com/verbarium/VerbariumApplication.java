@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018. SienDev, Inc. and Golubnichenko Iurii.  All Rights Reserved.
+ * Copyright (c) 2021. SienDev, Inc. and Golubnichenko Iurii.  All Rights Reserved.
  */
 
 package corp.siendev.com.verbarium;
