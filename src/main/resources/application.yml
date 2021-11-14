@@ -1,4 +1,6 @@
 spring:
+  banner:
+    location: classpath:META-INF/banner.txt
   application:
     name: Verbarium
   datasource:
@@ -17,10 +19,6 @@ spring:
 
 server:
   port: 8090
-
-# Start app (banner)
-banner:
-  location: classpath:META-INF/banner.txt
 
 logging:
   file:
