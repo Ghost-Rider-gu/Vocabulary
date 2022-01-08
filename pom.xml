@@ -29,9 +29,12 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     <java.version>1.8</java.version>
     <swagger.version>3.0.0</swagger.version>
     <postgresql.version>42.3.0</postgresql.version>
+    <flyway.version>8.4.0</flyway.version>
+
     <docker.plugin.version>1.4.13</docker.plugin.version>
     <docker.image.prefix>siendev</docker.image.prefix>
   </properties>
@@ -67,6 +70,13 @@
       <version>${postgresql.version}</version>
     </dependency>
 
+    <!-- Flyway -->
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>${flyway.version}</version>
+    </dependency>
+
     <!-- Swagger -->
     <dependency>
       <groupId>io.springfox</groupId>
@@ -90,6 +100,11 @@
         <configuration>
           <finalName>Verbarium</finalName>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>${flyway.version}</version>
       </plugin>
       <plugin>
         <groupId>com.spotify</groupId>
