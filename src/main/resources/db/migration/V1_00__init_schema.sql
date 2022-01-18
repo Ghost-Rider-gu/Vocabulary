@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS users
 (
     id BIGSERIAL,
     name character varying(100) NOT NULL,
-    password character varying(25) NOT NULL,
+    password character varying(250) NOT NULL,
     profile_id bigint,
     CONSTRAINT users_pkey PRIMARY KEY (id),
     CONSTRAINT unique_name UNIQUE (name),
